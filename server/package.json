@@ -8,7 +8,7 @@
     "dev": "nodemon index.js",
     "test": "mocha --exit --recursive tests/",
     "lint": "eslint .",
-    "build": "npm run lint && npm test && rm -rf dist && mkdir dist && babel src --out-dir dist --copy-files",
+    "build": "npm i",
     "predeploy": "npm run build",
     "deploy": "node dist/index.js"
   },
