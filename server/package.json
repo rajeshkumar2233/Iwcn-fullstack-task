@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "mocha --exit --recursive tests/",
+    "lint": "eslint .",
+    "build": "npm run lint && npm test && rm -rf dist && mkdir dist && babel src --out-dir dist --copy-files",
+    "predeploy": "npm run build",
+    "deploy": "node dist/index.js"
   },
-  "author": "",
+  "author": "rajesh",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

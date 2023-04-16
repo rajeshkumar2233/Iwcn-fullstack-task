@@ -38,24 +38,20 @@ router.delete("/notes/:id", (req, res) => {
     try {
         const id = req.params.id
         if (!id) {
-            return res.status(400).send("Please provide an ID in the URL params")
+            res.send("Please provide an ID in the URL params")
         }
         const query = `DELETE FROM note WHERE id=${id}`
         mysqlModel.query(query, (err, result) => {
             if (err) {
-                console.error(err) // log the error to the console for debugging
-                return res.status(400).send(err.message)
+                res.status(400).send(err.message)
             } else {
-                console.log(result) // log the query result to the console for debugging
-                return res.status(200).send("Deleted")
+                res.status(200).send("Deleted")
             }
         })
     } catch (err) {
-        console.error(err) // log the error to the console for debugging
-        return res.status(500).send({status: false, message: err.message})
+        res.status(500).send({status: false, message: err.message})
     }
 })
-
 
 router.get("/*", (req, res) => {
     res.send("Page not found")
