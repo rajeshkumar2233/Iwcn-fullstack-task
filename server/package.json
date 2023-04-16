@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "src/node index.js",
+    "dev": "src/nodemon index.js",
     "test": "mocha --exit --recursive tests/",
     "lint": "eslint .",
     "build": "npm i",
